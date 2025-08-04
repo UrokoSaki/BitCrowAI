@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://urokosaki.github.io/CryptoCrow/sitemap.xml
