@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CryptoCrow – Smart Crypto Trading Bot</title>
+  <meta name="description" content="CryptoCrow is a smart crypto trading bot that detects breakout setups in real time with AI-powered alerts and automated trading. Join the waitlist for early access.">
+  <meta name="keywords" content="crypto, trading bot, AI, breakout, bitcoin, crypto signals, automated trading, CryptoCrow, cryptocurrency, altcoins, Binance, trading signals, machine learning, algorithmic trading, crypto bot, crypto trading, crypto alerts, cryptoCrow bot, cryptoCrow trading bot, cryptoCrow ai">
+  <meta name="author" content="Benny Acka">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="canonical" href="https://cryptocrow.github.io/">
+  <!-- Social Meta -->
+  <meta property="og:title" content="CryptoCrow – Smart Crypto Trading Bot">
+  <meta property="og:description" content="Detect breakout setups in real time. AI-powered alerts and automated trading.">
+  <meta property="og:image" content="https://cryptocrow.github.io/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cryptocrow.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CryptoCrow – Smart Crypto Trading Bot">
+  <meta name="twitter:description" content="Detect breakout setups in real time. AI-powered alerts and automated trading.">
+  <meta name="twitter:image" content="https://cryptocrow.github.io/logo.png">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CryptoCrow",
+    "image": "https://cryptocrow.github.io/logo.png",
+    "description": "CryptoCrow is a smart crypto trading bot that detects breakout setups in real time with AI-powered alerts and automated trading.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "author": {
+      "@type": "Person",
+      "name": "Benny Acka"
+    },
+    "url": "https://cryptocrow.github.io/"
+  }
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 980px;
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+    }
+    .logo-wrapper {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px #00ff99, 0 0 60px #00ff99;
+      animation: glow 2.5s infinite alternate;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px #00ff99; }
+      100% { box-shadow: 0 0 40px #00ff99, 0 0 80px #00ff99; }
+    }
+    .logo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 10px #00ff99);
+    }
+    h1 {
+      font-size: 2.7rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #d6f5e7;
+    }
+    button {
+      background: linear-gradient(90deg, #00ff99 0%, #00cfff 100%);
+      color: #000;
+      padding: 0.7rem 2.2rem;
+      border: none;
+      border-radius: 0.4rem;
+      font-weight: bold;
+      font-size: 1.15rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff99;
+      transition: 0.2s;
+      margin-bottom: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #00cfff 0%, #00ff99 100%);
+      color: #fff;
+      box-shadow: 0 0 20px #00ff99;
+      transform: scale(1.04) translateY(-2px);
+    }
+    #waitlist-form {
+      margin-bottom: 2.5rem;
+      display: none;
+    }
+    input[type="email"] {
+      background: #232b3a;
+      color: #fff;
+      border: 1px solid #00ff99;
+      outline: none;
+      transition: 0.2s;
+      padding: 0.6rem 1rem;
+      border-radius: 0.4rem;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+    input[type="email"]:focus {
+      border-color: #00cfff;
+      box-shadow: 0 0 8px #00ff99;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.3rem;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: linear-gradient(135deg, #1e1e1e 60%, #232b3a 100%);
+      border-radius: 0.5rem;
+      padding: 1.3rem 1.1rem;
+      box-shadow: 0 0 20px rgba(0,255,0,0.12);
+      text-align: left;
+      transition: 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: 0 0 30px #00ff99, 0 0 60px #00ff99;
+      transform: translateY(-6px) scale(1.04);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      font-size: 1.25rem;
+      color: #00ff99;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .card p {
+      color: #e0f7fa;
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+    .how-it-works {
+      margin-top: 3.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .how-it-works h2 {
+      font-size: 1.5rem;
+      color: #00ff99;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.2rem;
+    }
+    .step {
+      background: rgba(44,83,100,0.18);
+      border-radius: 0.5rem;
+      padding: 1.1rem 1.2rem;
+      min-width: 170px;
+      text-align: center;
+      box-shadow: 0 0 10px #00ff9933;
+      transition: 0.2s;
+    }
+    .step i {
+      font-size: 2.1rem;
+      color: #00ff99;
+      margin-bottom: 0.5rem;
+    }
+    .step-title {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      color: #fff;
+    }
+    .step-desc {
+      color: #d6f5e7;
+      font-size: 0.98rem;
+    }
+    .roadmap {
+      margin-top: 3.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .roadmap h2 {
+      font-size: 1.5rem;
+      color: #00ff99;
+      margin-bottom: 1.1rem;
+      font-weight: 700;
+    }
+    .roadmap ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 420px;
+      text-align: left;
+    }
+    .roadmap li {
+      margin-bottom: 0.7rem;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .roadmap li .fa {
+      color: #00ff99;
+      font-size: 1.1rem;
+    }
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.95rem;
+      color: #b2dfdb;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 1rem; }
+      .features { grid-template-columns: 1fr; }
+      .steps { flex-direction: column; gap: 1.2rem; }
+      .logo-wrapper { width: 110px; height: 110px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-wrapper">
+      <img src="logo.png" alt="CryptoCrow Logo" width="160" height="160" loading="lazy" style="width:100%;height:100%;object-fit:contain;"/>
+    </div>
+    <header>
+      <h1>CryptoCrow – Smart Crypto Trading Bot</h1>
+      <h2 style="font-size:1.35rem;font-weight:400;color:#d6f5e7;margin-top:0.5rem;">Detect breakout setups in real time with AI-powered alerts and automated trading.</h2>
+    </header>
+    <button id="waitlist-btn"><i class="fa fa-bell"></i> Join the Waitlist</button>
+    <form id="waitlist-form">
+      <input type="email" id="waitlist-email" placeholder="Enter your email" required>
+      <button type="submit"><i class="fa fa-bell"></i> Join the Waitlist</button>
+    </form>
+
+    <section class="features" aria-label="Features">
+      <article class="card">
+        <h3><i class="fa fa-bolt" aria-hidden="true"></i> Early Detection</h3>
+        <p>The system detects strong moves before they happen – a real competitive edge.</p>
+      </article>
+      <article class="card">
+        <h3><i class="fa fa-chart-line" aria-hidden="true"></i> Market Depth Analysis</h3>
+        <p>Our AI model analyzes order book, volume, and trends in real time.</p>
+      </article>
+      <article class="card">
+        <h3><i class="fa fa-brain" aria-hidden="true"></i> AI-Powered Intelligence</h3>
+        <p>Using machine learning to assess probabilities and detect market traps.</p>
+      </article>
+      <article class="card">
+        <h3><i class="fa fa-bell" aria-hidden="true"></i> Smart Alerts</h3>
+        <p>Get notified via Telegram or email when high-quality setups are detected.</p>
+      </article>
+    </section>
+
+    <section class="how-it-works" aria-label="How It Works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <div class="step-title">Detect</div>
+          <div class="step-desc">Scan hundreds of coins for breakout setups in real time.</div>
+        </div>
+        <div class="step">
+          <i class="fa fa-microchip" aria-hidden="true"></i>
+          <div class="step-title">Analyze</div>
+          <div class="step-desc">AI engine scores each setup by probability and risk.</div>
+        </div>
+        <div class="step">
+          <i class="fa fa-bell" aria-hidden="true"></i>
+          <div class="step-title">Alert</div>
+          <div class="step-desc">Get instant alerts for the best opportunities.</div>
+        </div>
+        <div class="step">
+          <i class="fa fa-robot" aria-hidden="true"></i>
+          <div class="step-title">Trade</div>
+          <div class="step-desc">Automated trading executes the optimal strategy for you.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="roadmap" aria-label="Roadmap">
+      <h2>Roadmap</h2>
+      <ul>
+        <li><i class="fa fa-check-circle" aria-hidden="true"></i> Phase 1: Smart trading logic <span style="color:#00ff99;">(80% complete)</span></li>
+        <li><i class="fa fa-tools" aria-hidden="true"></i> Phase 2: Build user interface</li>
+        <li><i class="fa fa-flask" aria-hidden="true"></i> Phase 3: Beta version for selected users</li>
+        <li><i class="fa fa-bullhorn" aria-hidden="true"></i> Phase 4: Public launch</li>
+      </ul>
+    </section>
+
+    <footer>
+      <nav aria-label="Footer Navigation">
+        <a href="https://github.com/UrokoSaki" target="_blank" rel="noopener" style="color:#00ff99;text-decoration:none;font-weight:bold;">GitHub</a>
+        &nbsp;|&nbsp;
+        <a href="mailto:info@cryptocrow.ai" style="color:#00ff99;text-decoration:none;">Contact</a>
+      </nav>
+      <div style="margin-top:0.7rem;">© 2025 <span style="font-weight:bold;">CRYPTOCROW</span> – Developed by Benny Acka</div>
+    </footer>
+  </div>
+  <script>
+    // הצג טופס בלחיצה על הכפתור
+    document.getElementById('waitlist-btn').addEventListener('click', function() {
+      document.getElementById('waitlist-form').style.display = 'block';
+      this.style.display = 'none';
+      document.getElementById('waitlist-email').focus();
+    });
+    // טיפול בשליחת הטופס
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('waitlist-email').value;
+      alert('Thank you! You have been added to the waitlist: ' + email);
+      this.reset();
+      this.style.display = 'none';
+      document.getElementById('waitlist-btn').style.display = 'inline-flex';
+    });
+  </script>
+</body>
+</html>
