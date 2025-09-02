@@ -91,6 +91,7 @@
     /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* Account for fixed navbar when scrolling */
     }
 
     /* Navigation */
@@ -197,6 +198,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      padding-top: 80px; /* Add padding to account for fixed navbar */
     }
 
     .hero::before {
@@ -220,7 +222,7 @@
     .hero-logo {
       width: 200px;
       height: 200px;
-      margin: 0 auto 2rem;
+      margin: 1rem auto 2rem; /* Reduced top margin to account for padding */
       border-radius: 50%;
       background: rgba(255,255,255,0.05);
       backdrop-filter: blur(20px);
@@ -1284,7 +1286,7 @@
     const sections = document.querySelectorAll('section[id]');
     
     function highlightNavigation() {
-      const scrollPos = window.scrollY + 100;
+      const scrollPos = window.scrollY + 120; // Increased offset to account for navbar
       
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
